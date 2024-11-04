@@ -56,7 +56,7 @@ useEffect(() => {
               redirect("/home")
             });
           }} >
-            Login
+             Login with google
           </button>
           <button onClick={async ()=>{
             await signOut();
