@@ -28,7 +28,7 @@ const NavBar = () => {
       </div>
       <div className="bg-gray-200 py-3 px-5 rounded-md flex gap-2">
       <input className="bg-transparent focus:outline-none " type="text" name="" id="" placeholder="What are you looking for?" />
-      <img src="search.svg" alt="see" />
+      <img src="/search.svg" alt="see" />
       </div>
     </div>
     {/* <div className="w-full h-[1px] bg-black"></div>

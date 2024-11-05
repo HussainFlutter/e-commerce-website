@@ -15,7 +15,7 @@ const Login_Screen = () => {
 useEffect(() => {
   if( session)
     {
-      router.replace("/home")
+      router.replace("/pages/home")
     }
 }, [session])
 
