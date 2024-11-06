@@ -29,3 +29,8 @@ export function lowerCaseFirstLetterOfEveryWord (str) {
   // Join the words with a hyphen
   return words.join('-');
 }
+
+export function calculateDiscount(price,discount){
+  const calculatedDiscount = Math.floor(price - (price * discount / 100));
+  return calculatedDiscount;
+}
