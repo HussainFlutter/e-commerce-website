@@ -7,7 +7,7 @@ import { lowerCaseFirstLetterOfEveryWord } from "@/app/lib/utils";
 export default function CategoriiesAndCarouselSlider({categories}) {
   return <>
   {/* Categories */}
-  <div className="flex justify-between pr-14 pl-24 pt-10" >
+  <div className="flex justify-around pr-14 pl-24 pt-10" >
   <div className="flex flex-col font-semibold ">
     {categories.map((item,index)=>(
       <div className="flex gap-3" key = {uuidv4()}>

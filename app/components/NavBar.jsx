@@ -1,11 +1,11 @@
 "use client"
 import React from "react";
 import Link from "next/link";
-import { useSession } from "next-auth/react"
-
+// import { useSession } from "next-auth/react"
+//! Implement next auth
 // TODO: Set the hrefs  
 const NavBar = () => {
-  const { data: session } = useSession();
+  // const { data: session } = useSession();
   return (
     <>
     <div  className="flex justify-between my-5 mx-5 items-center lg:mx-24">
@@ -21,9 +21,12 @@ const NavBar = () => {
           <li>
             <Link href={""}>Contact</Link>
           </li>
-          {{session} ? <dir></dir> : (<li>
+          {/* {{session} ? <dir></dir> : (<li> */}
+          <li>
             <Link href={"/signup"}>Sign Up</Link>
-          </li> )}
+          </li>
+            
+          {/* </li> )} */}
         </ul>
       </div>
       <div className="bg-gray-200 py-3 px-5 rounded-md flex gap-2">

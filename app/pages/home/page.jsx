@@ -5,6 +5,8 @@ import CategoriiesAndCarouselSlider from './components/CarouselSlider'
 import { giveNineCategories } from '@/app/lib/utils'
 import ProductSlider from './components/ProductSlider'
 import ViewAllProductsButton from './components/ViewAllProductsButton'
+import SpeakerImage from './components/SpeakerImage'
+
 // * Home Screen
 const page = () => {
   const [categories, setCategories] = useState([]);
@@ -27,8 +29,10 @@ const page = () => {
   return (
     <>
         {categories.length === 0 ? <div>Loading...</div> : <CategoriiesAndCarouselSlider categories = {categories} />  }
-        <ProductSlider saleProducts={saleProducts} title={"Flash Sales"} />
+        <ProductSlider saleProducts={saleProducts} title={"Flash Sales"} discount = {true}/>
         <ViewAllProductsButton/>
+        <SpeakerImage/>
+        <ProductSlider saleProducts={saleProducts} title={"Trending" } />
     </>
   )
 }

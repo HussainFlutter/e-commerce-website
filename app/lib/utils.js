@@ -34,3 +34,18 @@ export function calculateDiscount(price,discount){
   const calculatedDiscount = Math.floor(price - (price * discount / 100));
   return calculatedDiscount;
 }
+
+export function averageRatingCalculator(ratings) {
+  // Check if the ratings array is not empty
+  if (ratings.length === 0) {
+    return 0; // or return some other default value
+  }
+
+  // Calculate the sum of the ratings
+  const totalSum = ratings.reduce((acc, rating) => acc + rating, 0);
+
+  // Calculate the average rating
+  const avgRating = totalSum / ratings.length;
+
+  return Math.floor(avgRating) ;
+}

@@ -5,7 +5,7 @@ import SessionWrapper from "./components/SessionWrapper";
 
 export default function RootLayout({ children }) {
   return (
-    <SessionWrapper>
+    // <SessionWrapper>
       <html lang="en">
         <body>
           <NavBar />
@@ -13,6 +13,6 @@ export default function RootLayout({ children }) {
           {/* <Footer /> */}
         </body>
       </html>
-    </SessionWrapper>
+    // {/* </SessionWrapper> */}
   );
 }
