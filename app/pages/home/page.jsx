@@ -6,21 +6,27 @@ import { giveNineCategories } from '@/app/lib/utils'
 import ProductSlider from './components/ProductSlider'
 import ViewAllProductsButton from './components/ViewAllProductsButton'
 import SpeakerImage from './components/SpeakerImage'
+import Services from './components/Services'
 
-// * Home Screen
-const page = () => {
+const HomeScreen = () => {
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
   const [saleProducts, setSaleProducts] = useState([]);
+  const [trendingProducts, setTrendingProducts] = useState([]);
   useEffect(() => {
   const fetchData = async ()=>{
     const response = await fetch(productsUrl);
     const data = await response.json();
     const arr =  Array.from(data);
+
     const discountedProducts =  arr.filter((item)=>item.discount == true)
+    const trendingProducts = arr.filter((item)=>item.trending == true)
     const nineCategories = giveNineCategories(arr);
+
+
     setProducts(arr);
     setCategories(nineCategories);
+    setTrendingProducts(trendingProducts)
     setSaleProducts(discountedProducts);
   }
   fetchData();
@@ -29,12 +35,13 @@ const page = () => {
   return (
     <>
         {categories.length === 0 ? <div>Loading...</div> : <CategoriiesAndCarouselSlider categories = {categories} />  }
-        <ProductSlider saleProducts={saleProducts} title={"Flash Sales"} discount = {true}/>
+        <ProductSlider products={saleProducts} title={"Flash Sales"}/>
         <ViewAllProductsButton/>
         <SpeakerImage/>
-        <ProductSlider saleProducts={saleProducts} title={"Trending" } />
+        <ProductSlider products={trendingProducts} title={"Trending" } />
+        <Services/>
     </>
   )
 }
 
-export default page
+export default HomeScreen
