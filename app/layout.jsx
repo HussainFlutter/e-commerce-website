@@ -7,9 +7,11 @@ export default function RootLayout({ children }) {
   return (
     // <SessionWrapper>
       <html lang="en">
-        <body>
+        <body className="flex flex-col min-h-[100vh]">
           <NavBar />
+          <div className="flex-grow">
           {children}
+          </div>
           <Footer />
         </body>
       </html>

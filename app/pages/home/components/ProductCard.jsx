@@ -35,7 +35,7 @@ const ProductCard = ({ item }) => {
         <p>{item.title}</p>
         <div className=" flex gap-3">
           {item.discount == true ? grayedOutPrice : <></>}
-          <p className="text-red-600">{discountCalculatedPrice}</p>
+          {discountCalculatedPrice}
         </div>
         <div className="flex gap-2 items-center ">
           <Rating

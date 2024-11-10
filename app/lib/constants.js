@@ -1,6 +1,7 @@
 
 export const baseApiUrl = "http://localhost:3000";
 export const productsUrl = `${baseApiUrl}/api/products`;
+
 export const services = [
     {
         icon:"/delivery_icon.png",
