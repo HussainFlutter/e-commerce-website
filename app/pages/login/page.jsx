@@ -2,24 +2,26 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { redirect, useRouter } from 'next/navigation'
-import { useSession, signIn, signOut } from "next-auth/react"
-import { useEffect } from "react";
+// import { useSession, signIn, signOut } from "next-auth/react"
+// import { useEffect } from "react";
+import CustomButton from '@/app/components/CustomButton'
+import Separator from "@/app/components/Separator";
 
 const Login_Screen = () => {
-  const [email, setemail] = useState("");
-  const [password, setpassword] = useState("");
+//   const [email, setemail] = useState("");
+//   const [password, setpassword] = useState("");
   const inputClasses = "px-2 py-3 w-full";
-  const router = useRouter()
-  const { data: session } = useSession();
+//   const router = useRouter()
+//   const { data: session } = useSession();
 
-useEffect(() => {
-  if( session)
-    {
-      router.replace("/pages/home")
-    }
-}, [session])
+// useEffect(() => {
+//   if( session)
+//     {
+//       router.replace("/pages/home")
+//     }
+// }, [session])
 
-  console.log(session);
+//   console.log(session);
   
 
   return (
@@ -37,7 +39,7 @@ useEffect(() => {
               name="email"
               placeholder="Email"
             />
-            <div className="w-full h-[1px] bg-black"></div>
+             <Separator />
           </div>
 
           <div className="w-72">
@@ -47,20 +49,22 @@ useEffect(() => {
               name="password"
               placeholder="Password"
             />
-            <div className="w-full h-[1px] bg-black"></div>
+             <Separator />
           </div>
         </form>
         <div className="flex justify-between py-5">
-          <button className="bg-red-400 px-6 py-3 text-white rounded-sm" onClick={async ()=>{
-            await signIn("google").then(()=>{
-              redirect("/home")
-            });
-          }} >
-             Login with google
-          </button>
-          <button onClick={async ()=>{
-            await signOut();
-          }} className="text-red-400">Forget Password?</button>
+          <CustomButton title={"Login with google"}
+          //  onClick={async ()=>{
+          //   await signIn("google").then(()=>{
+          //     redirect("/home")
+          //   });
+          // }} 
+          />
+          <button 
+          // onClick={async ()=>{
+          //   await signOut();
+          // }} 
+          className="text-red-400">Forget Password?</button>
         </div>
         <div>
           Don't have an account?{" "}
