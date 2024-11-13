@@ -1,7 +1,7 @@
 "use client"
 import React from "react";
-import SingleProduct from "./SingleProduct";
-const ProductsTable = () => {
+import SingleCartProduct from "./SingleCartProduct";
+const CartProductsTable = ({cartProducts,setRefresh}) => {
     
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg h-[35vh]">
@@ -26,14 +26,12 @@ const ProductsTable = () => {
             </tr>
         </thead>
         <tbody>
-        <SingleProduct/>
-        <SingleProduct/>
-        <SingleProduct/>
-        <SingleProduct/>
+          {cartProducts.map((item)=><SingleCartProduct key={item.postId} item={item} setRefresh={setRefresh}/>)}
+      
         </tbody>
       </table>
     </div>
   );
 };
 
-export default ProductsTable;
+export default CartProductsTable;

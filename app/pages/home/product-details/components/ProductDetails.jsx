@@ -4,6 +4,7 @@ import Sizes from "./Sizes";
 import CounterBuyNowFavourite from "./CounterBuyNowFavourite";
 import FreeDeliveryReturnDelivery from "./FreeDeliveryReturnDelivery";
 import RatingReviewsStock from "./RatingReviewsStock";
+
 const ProductDetails = ({ product }) => {
   const grayedOutPrice = (
     <p className="line-through text-gray-700 text-xl">{`$${product.price}`}</p>
@@ -32,7 +33,7 @@ const ProductDetails = ({ product }) => {
       {productDescription}
       {separator}
       <Sizes sizes={product.size} />
-      <CounterBuyNowFavourite />
+      <CounterBuyNowFavourite item={product} />
       <FreeDeliveryReturnDelivery/>
     </div>
   );

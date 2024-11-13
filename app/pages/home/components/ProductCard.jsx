@@ -1,6 +1,8 @@
 import React from "react";
 import Rating from "react-rating";
 import { calculateDiscount, averageRatingCalculator } from "@/app/lib/utils";
+// import { Link } from "react-feather";
+import Link from "next/link";
 
 const ProductCard = ({ item }) => {
   
@@ -20,6 +22,7 @@ const ProductCard = ({ item }) => {
   );
 
   return (
+    <Link href={`home/product-details/${item.postId}`} >
     <div className="flex flex-col pl-10 ">
       <div className="relative ">
         <img src={item.image} className="w-3/4 object-contain " />
@@ -49,6 +52,7 @@ const ProductCard = ({ item }) => {
         </div>
       </div>
     </div>
+    </Link>
   );
 };
 

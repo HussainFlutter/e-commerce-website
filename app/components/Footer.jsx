@@ -1,5 +1,5 @@
 import React from "react";
-
+import Image from "next/image";
 const Footer = () => {
 
   return <footer className="bg-black w-full bottom-0 pt-8  ">
@@ -12,7 +12,7 @@ const Footer = () => {
       <li>
       <div className="py-3 px-5 rounded-md flex gap-2 border-white border-2 w-fit">
     <input className="bg-black focus:outline-none " type="text" name="" id="" placeholder="What are you looking for?" />
-    <img src="send.svg" alt="send" />
+    <Image src={"/send.svg"} width={25} height={25} alt="send"></Image>
     </div>
       </li>
     </ul>

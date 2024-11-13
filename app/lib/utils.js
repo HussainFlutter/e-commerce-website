@@ -30,8 +30,8 @@ export function lowerCaseFirstLetterOfEveryWord (str) {
   return words.join('-');
 }
 
-export function calculateDiscount(price,discount){
-  const calculatedDiscount = Math.floor(price - (price * discount / 100));
+export function calculateDiscount(price,discountPercentage){
+  const calculatedDiscount = Math.floor(price - (price * discountPercentage / 100));
   return calculatedDiscount;
 }
 
@@ -48,4 +48,13 @@ export function averageRatingCalculator(ratings) {
   const avgRating = totalSum / ratings.length;
 
   return Math.floor(avgRating) ;
+}
+
+export function calculateSubtotal (quantity,price,discount,discountPercentage) {
+  if(discount == true)
+  {
+    const newPrice = calculateDiscount(price,discountPercentage);
+    return newPrice * quantity;
+  }
+  return price * quantity;
 }

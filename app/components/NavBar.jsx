@@ -13,7 +13,7 @@ const NavBar = () => {
       <div>
         <ul className="flex gap-8 text-xl">
           <li>
-            <Link href={""}>Home</Link>
+            <Link href={"/pages/home"}>Home</Link>
           </li>
           <li>
             <Link href={""}>About</Link>
