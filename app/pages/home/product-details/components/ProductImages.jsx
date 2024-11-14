@@ -1,18 +1,17 @@
-import React from 'react'
-
-const ProductImages = ({images}) => {
-  
+import React from "react";
+import Image from "next/image";
+const ProductImages = ({ images }) => {
   return (
-    <div className='flex gap-2'>
-      <div className='flex flex-col justify-between' >
-      <img src={images} alt="" width={120}/> 
-      <img src={images} alt="" width={120}/> 
-      <img src={images} alt="" width={120}/> 
-      <img src={images} alt="" width={120}/> 
+    <div className="flex gap-2">
+      <div className="flex flex-col justify-between">
+        <Image src={images} alt="image" width={120} height={120}></Image>
+        <Image src={images} alt="image" width={120} height={120}></Image>
+        <Image src={images} alt="image" width={120} height={120}></Image>
+        <Image src={images} alt="image" width={120} height={120}></Image>
       </div>
-      <img src={images} alt="" width={500}/> 
+      <Image src={images} alt="image" width={500} height={500}></Image>
     </div>
-  )
-}
+  );
+};
 
-export default ProductImages
+export default ProductImages;

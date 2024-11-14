@@ -1,7 +1,7 @@
 import React from "react";
 import Rating from "react-rating";
 import { calculateDiscount, averageRatingCalculator } from "@/app/lib/utils";
-// import { Link } from "react-feather";
+import Image from "next/image";
 import Link from "next/link";
 
 const ProductCard = ({ item }) => {
@@ -25,13 +25,31 @@ const ProductCard = ({ item }) => {
     <Link href={`home/product-details/${item.postId}`} >
     <div className="flex flex-col pl-10 ">
       <div className="relative ">
-        <img src={item.image} className="w-3/4 object-contain " />
+        <img  />
+        <Image
+        src={item.image} 
+        className="w-3/4 object-contain "
+        alt={item.title}
+        height={100}
+        width={100}
+        ></Image>
         {item.discount == true ? discountPercentageDiv : <></>}
         <div className="py-1 px-1 right-[28%] top-0 absolute ">
-          <img src="/fill_heart.png" alt="h" />
+          <Image
+        src="/fill_heart.png"
+        alt="fh"
+        height={22}
+        width={22}
+        ></Image>
         </div>
         <div className="py-1 px-1 right-[28%] top-[15%] absolute">
-          <img src="/fill_eye.png" alt="e" />
+         
+          <Image
+        src="/fill_eye.png"
+        alt="e"
+        height={22}
+        width={22}
+        ></Image>
         </div>
       </div>
       <div className="flex-col font-semibold ">

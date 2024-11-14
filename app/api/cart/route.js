@@ -57,7 +57,7 @@ export async function POST(req) {
   if ((await productExists(MyModel, reqBody.postId)) == true) {
     const product = await MyModel.updateOne(
       { postId: reqBody.postId }, // Find the document by its ID
-      { $inc: { quantity: reqBody.quantity } } // Increment the quantity by 'rb'
+      { $inc: { quantity: reqBody.quantity } } // Increment the quantity by 'reqBody'
     );
     return Response.json({
       statusCode: 200,

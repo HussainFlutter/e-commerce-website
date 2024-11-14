@@ -6,7 +6,6 @@ import CouponAndCheckout from './components/CouponAndCheckout'
 import { getCartProducts } from '@/app/data_source/cart_actions'
 
 
-
 const Cart_Screen = () => {
   const [loading, setLoading] = useState(true)
   const [cartProducts, setCartProducts] = useState([])
@@ -28,7 +27,7 @@ const Cart_Screen = () => {
     <>
       <CartProductsTable cartProducts= {cartProducts} setRefresh = {setRefresh}/>
       <TwoButtons/>
-      <CouponAndCheckout/>
+      <CouponAndCheckout cartProducts={cartProducts}/>
     </>
       : cartProducts == null ? <div className='text-2xl font-bold grid h-screen place-items-center' >Add Products to Cart</div> : <div className='text-2xl font-bold grid h-screen place-items-center'>Loading...</div>
   )
