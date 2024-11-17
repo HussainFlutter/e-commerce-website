@@ -30,9 +30,9 @@ const NavBar = () => {
             {/* </li> )} */}
           </ul>
         </div>
-        <div className="bg-gray-200 py-3 px-5 rounded-md flex gap-2">
+        <div className="bg-gray-200 py-1 px-5 rounded-md flex gap-2">
           <input
-            className="bg-transparent focus:outline-none "
+            className="bg-transparent focus:outline-none border-none"
             type="text"
             name=""
             id=""
