@@ -4,6 +4,8 @@ const CustomInput = ({
   type = "text",
   label = "placeholder",
   required = true,
+  register,
+  error,
 }) => {
   const handleKeyDown = (e) => {
     // Prevent any non-numeric character (including dots) on key press
@@ -19,10 +21,13 @@ const CustomInput = ({
         {required == true && <p className="text-red-600">*</p>}{" "}
       </label>
       <input
+        {...register}
         type={type}
         className="bg-gray-300 p-2 w-80 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
         onKeyDown={type == "number" ? handleKeyDown : ()=>{}}
+        
       />
+      {error}
     </div>
   );
 };

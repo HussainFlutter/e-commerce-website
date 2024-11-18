@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { addToCart } from "@/app/data_source/cart_actions";
+import { addToCart } from "@/app/actions/cart_actions";
 const CounterBuyNowFavourite = ({ item }) => {
   const [counter, setCounter] = useState(1);
   return (

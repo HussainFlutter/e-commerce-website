@@ -3,7 +3,7 @@ import React ,{useEffect,useState} from 'react'
 import CartProductsTable from './components/CartProductTable'
 import TwoButtons from './components/TwoButtons'
 import CouponAndCheckout from './components/CouponAndCheckout'
-import { getCartProducts } from '@/app/data_source/cart_actions'
+import { getCartProducts } from '@/app/actions/cart_actions'
 
 
 const Cart_Screen = () => {

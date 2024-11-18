@@ -2,6 +2,7 @@
 export const baseApiUrl = "http://localhost:3000";
 export const productsUrl = `${baseApiUrl}/api/products`;
 export const cartProductsUrl = `${baseApiUrl}/api/cart`;
+export const checkoutUrl = `${baseApiUrl}/api/checkout`;
 
 export const services = [
     {

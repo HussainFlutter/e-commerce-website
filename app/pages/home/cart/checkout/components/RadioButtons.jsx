@@ -1,11 +1,14 @@
 import React from "react";
 import Image from "next/image";
-const RadioButtons = () => {
+const RadioButtons = ({ register,errors }) => {
   return (
     <div className="flex flex-col gap-2 w-96">
       <div className="flex justify-between items-center  me-4">
         <div>
           <input
+            {...register("payment", {
+              required: { value: true, message: "This field is required" },
+            })}
             id="Card"
             type="radio"
             value="Card"
@@ -30,6 +33,9 @@ const RadioButtons = () => {
       </div>
       <div className="flex items-center me-4">
         <input
+        {...register("payment", {
+          required: { value: true, message: "This field is required" },
+        })}
           id="COD"
           type="radio"
           value="COD"
@@ -43,6 +49,11 @@ const RadioButtons = () => {
           Cash on Delivery
         </label>
       </div>
+      {errors.payment && (
+            <div className="text-red-800 text-xs">
+              {errors.payment.message}
+            </div>
+          )}
     </div>
   );
 };

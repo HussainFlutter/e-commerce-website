@@ -65,8 +65,9 @@ export async function POST(req) {
       product,
     });
   }
-
+  //Creating a new product
   const product = await MyModel.create(reqBody);
+
   return Response.json({
     statusCode: 200,
     message: "Created Product",
@@ -92,6 +93,14 @@ export async function DELETE(req) {
 
   //Gets the req body
   const reqBody = await req.json();
+
+  if(reqBody == "deleteAll")
+  {
+    await MyModel.deleteMany({});
+    return Response.json({
+      message:"Deleted all products"
+    })
+  }
   
   const product = await MyModel.deleteOne({postId:reqBody});
   return Response.json({
@@ -100,6 +109,8 @@ export async function DELETE(req) {
     product,
   });
 }
+
+
 
 
 const productExists = async (MyModel, postId) => {

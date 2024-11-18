@@ -1,9 +1,9 @@
 "use client";
 import React from "react";
 import { calculateSubtotal } from "@/app/lib/utils";
-import { delelteCartProduct } from "@/app/data_source/cart_actions";
+import { delelteCartProduct } from "@/app/actions/cart_actions";
 import Image from "next/image";
-import { addToCart } from "@/app/data_source/cart_actions";
+import { addToCart } from "@/app/actions/cart_actions";
 
 const SingleCartProduct = ({ item, setRefresh }) => {
   return (
