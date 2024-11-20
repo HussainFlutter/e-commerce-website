@@ -1,19 +1,21 @@
-"use server"
+"use server";
 import { checkoutUrl } from "../lib/constants";
-import { redirect } from 'next/navigation'
+export async function placeOrder(billingDetails, totalPrice) {
+  const checkOutModel = {
+    ...billingDetails,
+    totalPrice,
+  };
 
- export async function placeOrder (billingDetails,totalPrice) {
-    const checkOutModel  = {
-        ...billingDetails,
-        totalPrice,
-    }
-    
-    await fetch(checkoutUrl,{
-        method:"POST",
-        headers:{
-            "Content-Type":"application/json",
-        },
-        body:JSON.stringify(checkOutModel)
-    })
-     redirect("/pages/home")
- }
+  const f = await fetch(checkoutUrl, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(checkOutModel),
+  });
+
+  if (f.status === 400) {
+    return 400;
+  }
+  return 200;
+}

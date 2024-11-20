@@ -69,9 +69,9 @@ const CustomForm = ({ register, errors }) => {
           }),
         }}
         error={
-          errors.towm_city && (
+          errors.town_city && (
             <div className="text-red-800 text-xs">
-              {errors.towm_city.message}
+              {errors.town_city.message}
             </div>
           )
         }

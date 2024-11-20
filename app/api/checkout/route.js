@@ -46,22 +46,25 @@ export async function POST(req) {
     mongoose.model("checkout", checkOutProductsSchema);
 
   //Get the billing details
-  const reqBody = await req.json();
+  const billingDetails = await req.json();
   const response = await fetch(cartProductsUrl);
   //Get User's Cart items
   const usersCartProducts = await response.json();
   
-  console.log(reqBody);
-  console.log(usersCartProducts);
+  if(usersCartProducts.length ===0)
+  {
+    return new Response("No items in cart", { status: 400 })
+  }
+
   const checkoutModel = {
-    ...reqBody,
+    ...billingDetails,
     products:usersCartProducts,
   }
   await MyModel.create(
     checkoutModel,
   );
   //Delete All Cart items
-  const response2 = await fetch(cartProductsUrl,{
+   await fetch(cartProductsUrl,{
     method:"DELETE",
     headers:{
         "Content-Type":"application/json",

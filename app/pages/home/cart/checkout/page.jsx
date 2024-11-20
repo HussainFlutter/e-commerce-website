@@ -1,5 +1,5 @@
 "use client";
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo } from "react";
 import CheckoutBox from "../components/CheckoutBox";
 import RadioButtons from "./components/RadioButtons";
 import Coupon from "../components/Coupon";
@@ -7,8 +7,16 @@ import CustomButton from "@/app/components/CustomButton";
 import CustomForm from "./components/CustomForm";
 import { useForm } from "react-hook-form";
 import { placeOrder } from "@/app/actions/checkout_actions";
+import {toast } from 'react-toastify';
+import { redirect } from "next/navigation";
+
 const Checkout_Screen = () => {
   const total = useMemo(() => localStorage.getItem("total"), []);
+  useEffect(() => {
+  return ()=>{
+    localStorage.setItem("total",0)
+  }
+  }, [])
   const {
     register,
     handleSubmit,
@@ -16,7 +24,14 @@ const Checkout_Screen = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = async (data) => {
-    await placeOrder(data, total);
+    const result = await placeOrder(data, total);
+    if(result === 400)
+    {
+      toast.error("No items in cart");
+      redirect("/pages/home");
+    }
+    toast.success("Order Placed");
+    redirect("/pages/home");
   };
   return (
     <div className="flex">
