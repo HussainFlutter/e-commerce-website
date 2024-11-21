@@ -23,6 +23,7 @@ const Checkout_Screen = () => {
     if(result === 400)
     {
       toast.error("No items in cart");
+    }
 else if (result === 200)
 { 
   localStorage.setItem("total",0)
