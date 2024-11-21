@@ -12,11 +12,6 @@ import { redirect } from "next/navigation";
 
 const Checkout_Screen = () => {
   const total = useMemo(() => localStorage.getItem("total"), []);
-  useEffect(() => {
-  return ()=>{
-    localStorage.setItem("total",0)
-  }
-  }, [])
   const {
     register,
     handleSubmit,
@@ -28,6 +23,10 @@ const Checkout_Screen = () => {
     if(result === 400)
     {
       toast.error("No items in cart");
+else if (result === 200)
+{ 
+  localStorage.setItem("total",0)
+}
       redirect("/pages/home");
     }
     toast.success("Order Placed");
