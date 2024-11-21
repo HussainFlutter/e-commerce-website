@@ -17,5 +17,8 @@ export async function placeOrder(billingDetails, totalPrice) {
   if (f.status === 400) {
     return 400;
   }
-  return 200;
+  else if(f.status ===200){
+return 200;
+}
+  
 }
